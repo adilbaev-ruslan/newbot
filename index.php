@@ -1,5 +1,5 @@
 <?php 
 	
-	// telegram bot
+	// telegram bot ваыва ы
 	
  ?>
