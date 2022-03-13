@@ -20,7 +20,15 @@ switch ($text) {
 		break;
 	default:
 		if (in_array($text, $orders)) {
+			file_put_contents('massa.txt', $text);
 			askMessage();
+		} eles {
+			switch (file_get_contents('step.txt')) {
+				case "phone": 
+					file_put_contents('phone.txt', $text);
+					showDeleveryType();
+				break;
+			}
 		}
 		break;
 }
@@ -63,6 +71,7 @@ function orderList() {
 
 function askMessage() {
 	global $telegram, $chat_id;
+	file_put_contents('step.txt', 'phone');
 	$option = array(
     	array(
     		$telegram->buildKeyboardButton("Сиздин телефон номерининз", $request_contact = true),
