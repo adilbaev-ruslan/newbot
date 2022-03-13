@@ -24,15 +24,15 @@
 		$option = array(
 	    	array(
 	    		$telegram->buildKeyboardButton("1 Кг - 100 000,0 сум"),
-	    		$telegram->buildKeyboardButton("2 Кг - 200 000,0 сум")
+	    		$telegram->buildKeyboardButton("2 Кг - 200 000,0 сум"),
 	    	),
 	    	array(
 	    		$telegram->buildKeyboardButton("3 Кг - 300 000,0 сум"),
-	    		$telegram->buildKeyboardButton("4 Кг - 400 000,0 сум")
-	    	)
+	    		$telegram->buildKeyboardButton("4 Кг - 400 000,0 сум"),
+	    	),
 	    );
 	    $keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb);
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Буйыртпаны сайлан");
 		$telegram->sendMessage($content);
 	}
 	
