@@ -81,5 +81,9 @@ function askMessage() {
 	$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Буйыртпа бериу ушын телефон номерининизди киритин");
 	$telegram->sendMessage($content);
 }
+
+function showDeleveryType() {
+	
+}
 	
 ?>
