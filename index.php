@@ -34,44 +34,7 @@ if ($text == "/start") {
     $keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
 	$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Буйыртпаны сайлан");
 	$telegram->sendMessage($content);
-} elseif ($text = "1 Кг - 100 000,0 сум") {
-	$option = array(
-    	array(
-    		$telegram->buildKeyboardButton("Сиздин телефон номерининз", $request_contact = ture),
-    	),
-    );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-	$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Буйыртпа бериу ушын телефон номерининизди киритин");
-	$telegram->sendMessage($content);
-}elseif ($text = "2 Кг - 200 000,0 сум") {
-	$option = array(
-    	array(
-    		$telegram->buildKeyboardButton("Сиздин телефон номерининз", $request_contact = ture),
-    	),
-    );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-	$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Буйыртпа бериу ушын телефон номерининизди киритин");
-	$telegram->sendMessage($content);
-}elseif ($text = "3 Кг - 300 000,0 сум") {
-	$option = array(
-    	array(
-    		$telegram->buildKeyboardButton("Сиздин телефон номерининз", $request_contact = ture),
-    	),
-    );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-	$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Буйыртпа бериу ушын телефон номерининизди киритин");
-	$telegram->sendMessage($content);
-}elseif ($text = "4 Кг - 400 000,0 сум") {
-	$option = array(
-    	array(
-    		$telegram->buildKeyboardButton("Сиздин телефон номерининз", $request_contact = ture),
-    	),
-    );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-	$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Буйыртпа бериу ушын телефон номерининизди киритин");
-	$telegram->sendMessage($content);
 }
-
 // function askMessage() {
 // 	global $telegram, $chat_id;
 // 	$option = array(
