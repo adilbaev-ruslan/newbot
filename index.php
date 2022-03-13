@@ -8,23 +8,31 @@
 	$text = $telegram->Text();
 
 	if ($text == "/start") {
-
 		$option = array(
 	    	array(
-	    		$telegram->buildKeyboardButton("🇺🇿 Узбекском"),
-	    		$telegram->buildKeyboardButton("🇬🇧 English")
+	    		$telegram->buildKeyboardButton("Биз хаккымызда"),
+	    		$telegram->buildKeyboardButton("Буйыртпа бериу")
 	    	)
 	    );
-		
 		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-
-		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Botimizga xosh keldiniz tildi tanlan");
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Ассаламу алейкум");
 		$telegram->sendMessage($content);	
-	} elseif ($text == "🇺🇿 Узбекском") {
-		$content = array('chat_id' => $chat_id, 'text' => "Siz 🇺🇿 Узбекском tilin sayladiniz");
+	} elseif ($text == "Биз хаккымызда") {
+		$content = array('chat_id' => $chat_id, 'text' => "Биз хаккымызда");
 		$telegram->sendMessage($content);
-	} elseif ($text == "🇬🇧 English") {
-		$content = array('chat_id' => $chat_id, 'text' => "Siz 🇬🇧 English tilin sayladiniz");
+	} elseif ($text == "Буйыртпа бериу") {
+		$option = array(
+	    	array(
+	    		$telegram->buildKeyboardButton("1 Кг - 100 000,0 сум"),
+	    		$telegram->buildKeyboardButton("2 Кг - 200 000,0 сум")
+	    	),
+	    	array(
+	    		$telegram->buildKeyboardButton("3 Кг - 300 000,0 сум"),
+	    		$telegram->buildKeyboardButton("4 Кг - 400 000,0 сум")
+	    	)
+	    );
+	    $keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb);
 		$telegram->sendMessage($content);
 	}
 	
