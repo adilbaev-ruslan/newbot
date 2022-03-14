@@ -9,7 +9,7 @@ $text = $telegram->Text();
 $orders = ["1 Кг - 100 000,0 сум", "2 Кг - 200 000,0 сум", "3 Кг - 300 000,0 сум", "4 Кг - 400 000,0 сумs"];
 $data = $telegram->getData();
 
-
+showMessageJsonCode();
 
 switch ($text) {
 	case "/start":
@@ -74,10 +74,6 @@ function askMessage() {
     $keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
 	$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Буйыртпа бериу ушын телефон номерининизди киритин");
 	$telegram->sendMessage($content);
-}
-
-function showDeleveryType() {
-	
 }
 
 function showMessageJsonCode() {
