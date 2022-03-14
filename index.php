@@ -7,6 +7,9 @@ $telegram = new Telegram('5192813902:AAFlywjK7TjiZyDLglrH6Kb40RvFa3YuiNI');
 $chat_id = $telegram->ChatID();
 $text = $telegram->Text();
 $orders = ["1 Кг - 100 000,0 сум", "2 Кг - 200 000,0 сум", "3 Кг - 300 000,0 сум", "4 Кг - 400 000,0 сумs"];
+$data = $telegram->getData();
+
+
 
 switch ($text) {
 	case "/start":
@@ -20,15 +23,7 @@ switch ($text) {
 		break;
 	default:
 		if (in_array($text, $orders)) {
-			file_put_contents('massa.txt', $text);
 			askMessage();
-		} eles {
-			switch (file_get_contents('step.txt')) {
-				case "phone": 
-					file_put_contents('phone.txt', $text);
-					showDeleveryType();
-				break;
-			}
 		}
 		break;
 }
@@ -71,7 +66,6 @@ function orderList() {
 
 function askMessage() {
 	global $telegram, $chat_id;
-	file_put_contents('step.txt', 'phone');
 	$option = array(
     	array(
     		$telegram->buildKeyboardButton("Сиздин телефон номерининз", $request_contact = true),
@@ -84,6 +78,14 @@ function askMessage() {
 
 function showDeleveryType() {
 	
+}
+
+function showMessageJsonCode() {
+	global $telegram, $data;
+	$telegram->sendMessage([
+		'chat_id' => $chat_id,
+		'text' => json_encode($data, JSON_PRETTY_PRINT);
+	]);
 }
 	
 ?>
