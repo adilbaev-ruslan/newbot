@@ -1,4 +1,6 @@
 <?php 
+
+print("Hello, World!!!");
 	
 include 'Telegram.php';
 
