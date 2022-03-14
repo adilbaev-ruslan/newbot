@@ -77,7 +77,7 @@ function askMessage() {
 }
 
 function showMessageJsonCode() {
-	global $telegram, $data;
+	global $telegram, $data, $chat_id;
 	$telegram->sendMessage([
 		'chat_id' => $chat_id,
 		'text' => json_encode($data, JSON_PRETTY_PRINT);
