@@ -37,17 +37,19 @@ function showStart() {
 	$last_name = $data['message']['chat']['last_name'];
 	$username = $data['message']['chat']['username'];
 	$print = $first_name . " " . $last_name . " " . $username; 
-	// $sql = "INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `chat_id`) VALUES (NULL, $first_name, $last_name, $username, $chat_id)";
-
-	$option = array(
-    	array(
-    		$telegram->buildKeyboardButton("Биз хаккымызда"),
-    		$telegram->buildKeyboardButton("Буйыртпа бериу")
-    	)
-    );
-	$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-	$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $print);
-	$telegram->sendMessage($content);	
+	$sql = "INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `chat_id`) VALUES (NULL, $first_name, $last_name, $username, $chat_id)";
+	if ($db->query($sql)) {
+		$option = array(
+	    	array(
+	    		$telegram->buildKeyboardButton("Биз хаккымызда"),
+	    		$telegram->buildKeyboardButton("Буйыртпа бериу")
+	    	)
+	    );
+		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Ассаламу алйкум $first_name!");
+		$telegram->sendMessage($content);
+	}
+		
 }
 
 function aboutMe() {
