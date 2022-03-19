@@ -31,16 +31,23 @@ switch ($text) {
 }
 
 function showStart() {
-	global $telegram, $chat_id;
-	$option = array(
+	global $telegram, $chat_id, $data, $db;
+	
+	$first_name = $data['chat']['first_name'];
+	$last_name = $data['chat']['last_name'];
+	$username = $data['chat']['username'];
+	$sql = "INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `chat_id`) VALUES (NULL, $first_name, $last_name, $username, $chat_id)";
+	if ($db->query($sql)) {
+		$option = array(
     	array(
     		$telegram->buildKeyboardButton("Биз хаккымызда"),
     		$telegram->buildKeyboardButton("Буйыртпа бериу")
     	)
     );
 	$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-	$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Ассаламу алейкум");
+	$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Ассаламу алейкум $first_name $last_name");
 	$telegram->sendMessage($content);
+	}	
 }
 
 function aboutMe() {
@@ -85,12 +92,4 @@ function showMessageJsonCode() {
 		'text' => json_encode($data, JSON_PRETTY_PRINT),
 	]);
 }
-
-function showMessageArray() {
-	global $data;
-	echo "<pre>";
-	var_dump($data);
-	echo "</pre>";
-}
-	
 ?>
