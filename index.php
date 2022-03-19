@@ -33,9 +33,9 @@ switch ($text) {
 function showStart() {
 	global $telegram, $chat_id, $data, $db;
 	
-	$first_name = $data['chat']['first_name'];
-	$last_name = $data['chat']['last_name'];
-	$username = $data['chat']['username'];
+	$first_name = $data['message']['chat']['first_name'];
+	$last_name = $data['message']['chat']['last_name'];
+	$username = $data['message']['chat']['username'];
 	$print = $first_name . " " . $last_name . " " . $username; 
 	// $sql = "INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `chat_id`) VALUES (NULL, $first_name, $last_name, $username, $chat_id)";
 
