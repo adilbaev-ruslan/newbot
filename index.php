@@ -36,7 +36,6 @@ function showStart() {
 	$first_name = $data['message']['chat']['first_name'];
 	$last_name = $data['message']['chat']['last_name'];
 	$username = $data['message']['chat']['username'];
-	$print = $first_name . " " . $last_name . " " . $username; 
 	$sql = "INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `chat_id`) VALUES (NULL, $first_name, $last_name, $username, $chat_id)";
 	if ($db->query($sql)) {
 		$option = array(
@@ -46,7 +45,7 @@ function showStart() {
 	    	)
 	    );
 		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Ассаламу алйкум $first_name!");
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Ассаламу алйкум");
 		$telegram->sendMessage($content);
 	}
 		
