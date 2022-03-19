@@ -1,7 +1,7 @@
 <?php 
 
 echo "<h1>Hello, World!!!</h1>";
-	
+require_once 'db_connect.php';
 include 'Telegram.php';
 
 $telegram = new Telegram('5192813902:AAFlywjK7TjiZyDLglrH6Kb40RvFa3YuiNI');
@@ -84,6 +84,13 @@ function showMessageJsonCode() {
 		'chat_id' => $chat_id,
 		'text' => json_encode($data, JSON_PRETTY_PRINT),
 	]);
+}
+
+function showMessageArray() {
+	global $data;
+	echo "<pre>";
+	var_dump($data);
+	echo "</pre>";
 }
 	
 ?>
